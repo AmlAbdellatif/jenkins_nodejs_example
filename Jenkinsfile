@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'ec2-private'}
+    agent {label 'ec2-p'}
     stages {
         stage('CI') {
             steps {
