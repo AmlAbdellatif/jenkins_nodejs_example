@@ -3,6 +3,8 @@ var mysql = require('mysql');
 const app = express()
 const port = 3000
 
+
+app.get("/db",(req,res)=>{
 var connection = mysql.createConnection({
   host     : process.env.RDS_HOSTNAME,
   user     : process.env.RDS_USERNAME,
