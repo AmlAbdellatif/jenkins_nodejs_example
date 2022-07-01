@@ -8,7 +8,7 @@ pipeline {
                """
                 }
             }
-        }
+        
 
         stage('CD') {
             steps {
@@ -19,3 +19,4 @@ pipeline {
         }
     }
 }
+
