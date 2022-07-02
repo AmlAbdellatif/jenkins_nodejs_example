@@ -9,9 +9,9 @@ pipeline {
                  
                sh """
                docker build  -t nodejsapp:latest .
-               docker login  -u ${nexus_username} -p ${nexus_pass} 10.108.235.232:8801/tools/repository/docker-repo/
-               docker tag nodejsapp:latest  10.108.235.232:8801/tools/repository/docker-repo/nodejsapp:latest
-               docker push  10.108.235.232:8801/tools/repository/docker-repo/nodejsapp:latest
+               docker login  -u ${nexus_username} -p ${nexus_pass} http://192.168.49.2:30082/repository/docker-repo/
+               docker tag nodejsapp:latest  http://192.168.49.2:30082/repository/docker-repo/nodejsapp:latest
+               docker push  http://192.168.49.2:30082/repository/docker-repo/nodejsapp:latest
                """
                 }
                }
