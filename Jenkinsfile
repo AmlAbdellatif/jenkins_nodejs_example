@@ -3,13 +3,18 @@ pipeline {
     stages {
         stage('CI') {
             steps {
+                withCredentials([
+                    usernamePassword(credentialsId: 'nexus' , usernameVariable: 'nexus_username', passwordVariable: 'nexus_pass')]) 
+                {
+                 
                sh """
                docker build  -t nodejsapp:latest .
-               docker login http://nexussvcclusterip:80/repository/docker-repo/
+               docker login  -u ${nexus_username} -p ${nexus_pass} http://nexussvcclusterip:80/repository/docker-repo/
                docker tag nodejsapp:latest 
                docker push nexussvcclusterip:80/repository/docker-repo/nodejsapp:latest
                """
                 }
+               }
             }
         
 
