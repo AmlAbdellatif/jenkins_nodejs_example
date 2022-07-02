@@ -9,9 +9,9 @@ pipeline {
                  
                sh """
                docker build  -t nodejsapp:latest .
-               docker login  -u ${nexus_username} -p ${nexus_pass} nexussvcclusterip:8801/repository/docker-repo/
-               docker tag nodejsapp:latest nexussvcclusterip:8081/repository/docker-repo/nodejsapp:latest
-               docker push  nexussvcclusterip:8801/repository/docker-repo/nodejsapp:latest
+               docker login  -u ${nexus_username} -p ${nexus_pass} 10.108.235.232:8081/repository/docker-repo/
+               docker tag nodejsapp:latest 10.108.235.232:8081/repository/docker-repo/nodejsapp:latest
+               docker push  10.108.235.232:8081/repository/docker-repo/nodejsapp:latest
                """
                 }
                }
