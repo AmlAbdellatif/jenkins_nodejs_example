@@ -5,6 +5,9 @@ pipeline {
             steps {
                sh """
                docker build  -t nodejsapp:latest .
+               docker login http://nexussvcclusterip:80/repository/docker-repo/
+               docker tag nodejsapp:latest 
+               docker push nexussvcclusterip:80/repository/docker-repo/nodejsapp:latest
                """
                 }
             }
